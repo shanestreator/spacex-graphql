@@ -2,6 +2,21 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import config from './config'
+import ApolloClient from "apollo-boost";
+
+
+console.log(config.GITHUB_GQL_API)
+
+const client = new ApolloClient({
+  uri: "https://api.github.com/graphql",
+  request: operation => {
+      operation.setContext({
+          headers: {
+              authorization: `Bearer ${config.GITHUB_GQL_API}`
+          },
+      });
+  }
+});
 
 class App extends Component {
   render() {

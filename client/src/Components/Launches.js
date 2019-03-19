@@ -5,7 +5,7 @@ import LaunchItem from './LaunchItem'
 import MissionKey from './MissionKey'
 
 const LAUNCHES_QUERY = gql`
-  query LaunchesQuery{
+  query LaunchesQuery {
     launches {
       flight_number
       mission_name
@@ -19,26 +19,21 @@ export class Launches extends Component {
   render() {
     return (
       <>
-        <h1 className='display-4 my-3'> Launches</h1>
+        <h1 className="display-4 my-3"> Launches</h1>
         <MissionKey />
         <Query query={LAUNCHES_QUERY}>
-          {
-            ({ loading, error, data }) => {
-              if (loading) return <h4>Loading...</h4>
-              if (error) console.log(error)
-              console.log(data)
+          {({ loading, error, data }) => {
+            if (loading) return <h4>Loading...</h4>
+            if (error) console.error(error)
 
-              return (
-                <>
-                  {
-                    data.launches.map(launch => (
-                      <LaunchItem key={launch.flight_number} launch={launch} />
-                    ))
-                  }
-                </>
-              )
-            }
-          }
+            return (
+              <>
+                {data.launches.map(launch => (
+                  <LaunchItem key={launch.flight_number} launch={launch} />
+                ))}
+              </>
+            )
+          }}
         </Query>
       </>
     )

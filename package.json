@@ -1,20 +1,22 @@
 {
-  "name": "spacex-graphql",
+  "name": "server",
   "version": "10.15.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "cd server && npm start",
-    "build": "node server.js",
-    "server": "npm start --prefix server",
+    "start": "node server.js",
+    "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-prebuild": "cd client && npm install && npm run build && cd .. && cd server && npm install"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "Shane Streator",
+  "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "concurrently": "^4.1.0",
-    "dotenv": "^7.0.0"
+    "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.1.1"
   }
 }

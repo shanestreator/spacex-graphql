@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "prod": "cd ../client && npm install && npm run build && cd ../server && npm install && cross-env NODE_ENV=production node bin/www"
   },
   "author": "",

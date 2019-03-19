@@ -4,8 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "prod": "cd ../client && npm install && npm run build && cd ../server && npm install && cross-env NODE_ENV=production node bin/www"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
